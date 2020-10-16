@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
   var layer = layui.layer
 
   // 1.1 获取裁剪区域的 DOM 元素
@@ -15,12 +15,12 @@ $(function() {
   $image.cropper(options)
 
   // 为上传按钮绑定点击事件
-  $('#btnChooseImage').on('click', function() {
+  $('#btnChooseImage').on('click', function () {
     $('#file').click()
   })
 
   // 为文件选择框绑定 change 事件
-  $('#file').on('change', function(e) {
+  $('#file').on('change', function (e) {
     // 获取用户选择的文件
     var filelist = e.target.files
     if (filelist.length === 0) {
@@ -41,7 +41,7 @@ $(function() {
   })
 
   // 为确定按钮，绑定点击事件
-  $('#btnUpload').on('click', function() {
+  $('#btnUpload').on('click', function () {
     // 1. 要拿到用户裁剪之后的头像
     var dataURL = $image
       .cropper('getCroppedCanvas', {
@@ -57,7 +57,7 @@ $(function() {
       data: {
         avatar: dataURL
       },
-      success: function(res) {
+      success: function (res) {
         if (res.status !== 0) {
           return layer.msg('更换头像失败！')
         }
